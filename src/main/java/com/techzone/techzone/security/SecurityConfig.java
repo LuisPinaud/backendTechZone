@@ -50,12 +50,16 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/marcas").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/proveedores").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/usuarios/registrar").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/api/productos/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/usuarios/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/categorias/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/api/marcas/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/api/proveedores/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/api/marcas/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/api/proveedores/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/api/productos/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/categorias/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             );
 
@@ -76,5 +80,4 @@ public class SecurityConfig {
                 .build();
     }
 }
-
 
